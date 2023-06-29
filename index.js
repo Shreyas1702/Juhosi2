@@ -9,6 +9,7 @@ var app = express();
 
 app.use(
   session({
+    proxy: true,
     key: "keyin",
     secret: "webslesson",
     resave: false,
