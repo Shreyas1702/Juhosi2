@@ -79,9 +79,13 @@ app.post("/login", (req, res) => {
         console.log(err);
       } else {
         data = row;
-        console.log(data);
-        req.session.user_id = row[0].id;
-        res.render("detail.ejs", { data });
+        if (data.length > 0) {
+          req.session.user_id = row[0].id;
+          res.render("detail.ejs", { data });
+        } else {
+          req.flash("error", "Crendentials Dont match");
+          res.redirect("/");
+        }
       }
     }
   );
