@@ -1,0 +1,221 @@
+.navbar {
+  margin-top: 20px;
+}
+
+.navbar h2 {
+  margin-left: 30px;
+}
+
+.navbar-nav {
+  position: absolute;
+  right: 100px;
+}
+
+.navbar-brand {
+  font-size: 28px;
+  font-weight: 600;
+  /* font-family: "Hind", sans-serif;
+  font-family: "Montserrat", sans-serif; */
+  font-family: "Roboto", sans-serif;
+}
+
+.nav-link {
+  font-size: 20px;
+}
+
+.nav-item {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.nav-link {
+  font-weight: 600;
+  font-size: 22px;
+}
+
+/* Login form */
+
+.body {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  height: 70%;
+  margin: 70px 150px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.4);
+}
+
+.heading {
+  text-align: center;
+  padding-top: 170px;
+}
+
+.heading h2 {
+  padding-top: 10px;
+}
+
+.heading img {
+  width: 140px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.leftbody {
+  width: 60%;
+  border-radius: 10px 5px 5px 10px;
+  background-color: #152238;
+  text-align: center;
+  color: white;
+}
+
+.leftbody p {
+  padding: 20px 70px;
+  font-size: 19px;
+}
+
+.leftbody img {
+  height: 280px;
+  width: 300px;
+  margin-top: 130px;
+}
+
+.loginbody {
+  width: 40%;
+  height: 650px;
+  align-items: center;
+}
+
+.loginbody input {
+  width: 300px;
+  margin-top: 30px;
+}
+
+#logbtn {
+  width: 300px;
+  margin-top: 20px;
+}
+
+#passbtn {
+  width: 300px;
+  margin-top: 20px;
+}
+
+#cbtn {
+  width: 345px;
+  margin-top: 20px;
+}
+
+.formbody {
+  margin: 60px 105px;
+}
+
+/* Form Body */
+
+.formbodys {
+  width: 60%;
+  margin: auto;
+  padding-top: 50px;
+}
+
+.profilebodys {
+  width: 60%;
+  margin: auto;
+  padding-top: 50px;
+}
+
+.profilebodys input,
+.profilebodys span {
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 1400px) {
+  .formbody {
+    margin: 30px 75px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .formbody {
+    margin: 30px 45px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .leftbody {
+    width: 50%;
+    border-radius: 10px 5px 5px 10px;
+    background-color: #152238;
+    text-align: center;
+    color: white;
+  }
+
+  .loginbody {
+    width: 50%;
+    height: 650px;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .loginbody input {
+    width: 250px;
+    margin-top: 30px;
+  }
+
+  #logbtn {
+    width: 250px;
+    margin-top: 20px;
+  }
+
+  #passbtn {
+    width: 250px;
+    margin-top: 20px;
+  }
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 25%;
+  padding-bottom: 50px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.chanform {
+  margin: auto;
+}
+
+.chanform input {
+  margin-top: 20px;
+}
