@@ -6,6 +6,7 @@ const xlsx = require("xlsx");
 const flash = require("connect-flash");
 const session = require("express-session");
 var app = express();
+var data_exporter = require("json2csv").Parser;
 
 app.use(
   session({
@@ -92,18 +93,26 @@ app.get("/export", (req, res) => {
   const id = req.session.user_id;
   console.log("session Id is:");
   console.log(id);
+  const path = "./files";
   connection.query("select * from OrderItem where id=?", [id], (err, row) => {
     if (err) {
       console.log(err);
     } else {
-      let data = row[0];
-      console.log(data);
-      let workbook = xlsx.utils.book_new();
-      let worksheet = xlsx.utils.json_to_sheet(row);
-      xlsx.utils.book_append_sheet(workbook, worksheet, "Order History");
-      xlsx.writeFile(workbook, "C://Users//Public/Order.xlsx");
-      req.flash("success", "Successfully Downloaded the orders sheet!");
-      res.redirect("/");
+      let data = row;
+
+      var mysql_data = JSON.parse(JSON.stringify(data));
+      var json_data = new data_exporter();
+
+      var csv_data = json_data.parse(mysql_data);
+
+      res.setHeader("Content-Type", "text/csv");
+
+      res.setHeader(
+        "Content-Disposition",
+        "attachment; filename=sample_data.csv"
+      );
+
+      res.status(200).end(csv_data);
     }
   });
 });
