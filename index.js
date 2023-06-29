@@ -87,6 +87,7 @@ app.post("/login", (req, res) => {
 
 app.get("/export", (req, res) => {
   const id = req.session.user_id;
+  console.log("session Id is:");
   console.log(id);
   connection.query("select * from OrderItem where id=?", [id], (err, row) => {
     if (err) {
@@ -109,6 +110,10 @@ app.get("/export", (req, res) => {
 app.post("/customers", (req, res) => {
   const cust = req.body;
   const id = req.session.user_id;
+  console.log("session Id is:");
+
+  console.log(id);
+
   let productId = 500;
   const custData = [
     cust.odate,
@@ -137,7 +142,9 @@ app.post("/customers", (req, res) => {
 //**********************User Profile route ***************************
 app.get("/profile", (req, res) => {
   const id = req.session.user_id;
+  console.log("session Id is:");
 
+  console.log(id);
   let data;
   connection.query("select * from user where id=?", [id], (err, row) => {
     if (err) {
@@ -154,6 +161,9 @@ app.get("/profile", (req, res) => {
 app.get("/orders", (req, res) => {
   let data;
   const id = req.session.user_id;
+  console.log("session Id is:");
+  console.log(id);
+
   connection.query("select * from OrderItem where id=?", [id], (err, row) => {
     if (err) {
       console.log(err);
