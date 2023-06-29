@@ -101,7 +101,7 @@ app.get("/export", (req, res) => {
       let workbook = xlsx.utils.book_new();
       let worksheet = xlsx.utils.json_to_sheet(row);
       xlsx.utils.book_append_sheet(workbook, worksheet, "Order History");
-      xlsx.writeFile(workbook, "C://Users//AAA//Downloads/Order.xlsx");
+      xlsx.writeFile(workbook, "./Order.xlsx");
       req.flash("success", "Successfully Downloaded the orders sheet!");
       res.redirect("/");
     }
