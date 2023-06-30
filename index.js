@@ -103,20 +103,25 @@ app.get("/export", (req, res) => {
       console.log(err);
     } else {
       let data = row;
+      console.log(data.length);
+      if (data.length <= 0) {
+        req.flash("error", "No Order history Available");
+        res.redirect("/");
+      } else {
+        var mysql_data = JSON.parse(JSON.stringify(data));
+        var json_data = new data_exporter();
 
-      var mysql_data = JSON.parse(JSON.stringify(data));
-      var json_data = new data_exporter();
+        var csv_data = json_data.parse(mysql_data);
 
-      var csv_data = json_data.parse(mysql_data);
+        res.setHeader("Content-Type", "text/csv");
 
-      res.setHeader("Content-Type", "text/csv");
+        res.setHeader(
+          "Content-Disposition",
+          "attachment; filename=sample_data.csv"
+        );
 
-      res.setHeader(
-        "Content-Disposition",
-        "attachment; filename=sample_data.csv"
-      );
-
-      res.status(200).end(csv_data);
+        res.status(200).end(csv_data);
+      }
     }
   });
 });
